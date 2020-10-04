@@ -2564,12 +2564,6 @@ function exec_installMountRsync() {
 }
 
 function exec_installImageCopy() {
-  if [ "${st_isoInspections[isHybrid]}" == false ]; then
-    ps_failAndExit ASSERTION_FAILED "You cannot set Image-Copy mode with a non-hybrid, 'El-Torito' image file." \
-      "El-Torito image files don't have a partition table; and thus target device will not be recognized" \
-      "by any boot system as a boot candidate. If you think this image file is hybrid and this is a bug, please report at " \
-      "${ct_ticketsURL}."
-  fi
   st_shouldMakePartition=false
   step_runSecurityAssessments
   devi_partitionUSB false
